@@ -1,0 +1,41 @@
+<div class="container col-lg-5 pt-2">
+    <form class="formCss" action="http://127.0.0.1:5000/adminAddBook/{{ access_level_email }}" method="POST">
+        <div class="mt-3 pt-3 mb-3 formHead">
+            <h4>New Book</h4>
+          </div>
+    
+    <div class="px-4 formfield">
+        <div class="form-group">
+            <label for="inputTitle">Title</label>
+            <input type="text" class="form-control" id="inputTitle" name="inputTitle" placeholder="book title" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="inputAuthor">Author</label>
+            <input type="text" class="form-control" id="inputAuthor" name="inputAuthor" placeholder="book author" required/>
+          </div>
+    
+        
+        
+        <div class="form-group ">
+            <label for="inputGenre">Genre</label>
+            <select id="inputGenre" class="form-control" name="inputGenre" required>
+              <option style="display:none" selected>select a genre</option>
+              <option>Technology</option>
+              <option>Science</option>
+              <option>Mathematics</option>
+              <option>Philosophy</option>
+              <option>Psychology</option>
+            </select>
+          </div>
+         
+          <div class="form-group">
+            <label for="inputCopies">No. of Copies</label>
+            <input type="number" class="form-control" id="inputCopies" name="inputCopies"  />
+          </div>
+
+    </div>
+        
+        <button type="submit" class="btn btn-info mb-2">Submit</button>
+      </form>
+      </div>

@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Library Management System</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}" />
+        <meta http-equiv="refresh" content="60">
+    </head>
+<body>
+{% if access_level=='member' and access_level_email %}
+<div>
+  {% include 'userNavbar.html' %}
+</div>
+
+<div>
+    {% if user_active_section=='user_view_books' and access_level_email %}
+      
+    {% include 'userViewBooks.html' %}
+
+    {% elif user_active_section=='user_book_shelf' and access_level_email %}
+      
+    {% include 'userBookShelf.html' %}
+    
+
+
+{% endif %}
+</div>
+{% else %}
+ 
+{% include 'signin.html' %}
+{% endif %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>   
+</html>

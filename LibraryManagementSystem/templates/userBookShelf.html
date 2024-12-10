@@ -1,0 +1,42 @@
+
+<div class="container-fluid pt-5 pb-2">
+    <table class="table " style="text-align: center;">
+      <thead>
+        <tr>
+          <th scope="col">Sr. No.</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Genre</th>
+          <th scope="col">No. of Copies</th>
+          <th scope="col">Date of Issue</th>
+          <th scope="col">Rental Period</th>
+           <th scope="col">Return</th> 
+          
+        </tr>
+      </thead>
+      <tbody>
+       
+        {% if perosnal_shelf  %} 
+        
+          {% for rentBook in perosnal_shelf %}
+           {% if rentBook %}
+        <tr> 
+          
+          <td><b> {{ loop.index }} </b></td>
+          <td>{{ rentBook.inputTitle  }} </td>
+          <td> {{ rentBook.inputAuthor }} </td>
+          <td>  {{ rentBook.inputGenre }}  </td>
+          <td> {{ rentBook.inputCopies }}  </td>
+          <td> {{ rentBook.issueDate }}</td>
+          <td> {{ rentBook.inputDays }}  </td>
+          <td><button type="button" class="btn btn-success" onclick="window.location.href='http://127.0.0.1:5000/userReturnBook/{{ rentBook._id }}/{{ access_level_email }}'" 
+            method="POST">Return</button></td>
+        
+        </tr>
+        {% endif %}
+        {% endfor %}
+   {% endif %}
+             
+      </tbody>
+    </table>
+  </div>

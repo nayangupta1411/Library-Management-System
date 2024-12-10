@@ -1,0 +1,40 @@
+
+<div class="container-fluid">
+    <nav class=" navbar navbar-expand-sm admin_nav row" >
+        <div class="col-lg-8 pl-5 admin_nav_heading">
+            <div class="navbar-brand">📚Library Management System</div>
+    
+        </div>
+        <div class="col-lg-4 ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     
+                <div class="my-2 my-lg-0">
+                  <ul class="navbar-nav ">
+                      <li class="nav-item">
+                        <a class="nav-link admin_nav_link {% if admin_active_section=='admin_view_books' %} active {% endif %}" type="button"  href="{{ url_for('admin_view_books',access_level_email=access_level_email) }}">View Books</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link admin_nav_link {% if admin_active_section=='admin_add_book' %} active {% endif %}" type="button" href="{{ url_for('admin_add_book',access_level_email=access_level_email) }}">Add Book</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                        <a class="nav-link admin_nav_link {% if admin_active_section=='admin_checkRented_book' %} active {% endif %}" type="button" href="{{ url_for('admin_checkRented_book',access_level_email=access_level_email) }}" >
+                          Rented Books 
+                        </a>
+                      </li>
+                      
+                      <li class="nav-item">
+                        <a class="nav-link admin_nav_link"  type="button" href="{{ url_for('logout') }}" >
+                          SignOut
+                        </a>
+                      </li>
+                    </ul>
+                 
+                </div>
+              </div>
+        </div> 
+    </nav>
+    </div>

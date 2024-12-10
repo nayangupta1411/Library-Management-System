@@ -1,0 +1,33 @@
+
+<div class="container-fluid">
+    <nav class=" navbar navbar-expand-sm admin_nav row" >
+        <div class="col-lg-8 pl-5 admin_nav_heading">
+            <div class="navbar-brand">📚Library Management System</div>
+    
+        </div>
+        <div class="col-lg-4 pl-5 ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+     
+                <div class="my-lg-0">
+                  <ul class="navbar-nav ">
+                      <li class="nav-item">
+                        <a class="nav-link admin_nav_link {% if user_active_section=='user_view_books' %} active {% endif %}" type="button"  href="{{ url_for('user_view_books',access_level_email=access_level_email) }}">View Books</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link admin_nav_link {% if user_active_section=='user_book_shelf' %} active {% endif %}" type="button" href="{{ url_for('user_book_shelf',access_level_email=access_level_email) }}" >My Book Shelf</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link admin_nav_link  type="button" href="{{ url_for('logout') }}" >
+                          SignOut
+                        </a>
+                      </li>
+                    </ul>
+                 
+                </div>
+              </div>
+        </div> 
+    </nav>
+    </div>

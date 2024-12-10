@@ -1,0 +1,62 @@
+<div class="container-fluid pt-4" style="text-align: center;">
+  
+  <form  action="http://127.0.0.1:5000/adminSelectCategory/{{ access_level_email }}" method="POST">
+    <div class="form-group row">
+      <!-- <div class="col-lg-2"></div> -->
+      <label for="searchBy" class="col-lg-3 col-form-label"><b>Searched by - </b></label>
+      <div class="col-lg-3">
+        <select id="inputCategory" class="form-control" name="inputCategory" required>
+          <option value="all_books" selected>all books</option>
+          <option value="inputTitle">Title</option>
+          <option value="inputAuthor">Author</option>
+          <option value="inputGenre">Genre</option>
+        </select>
+      </div>
+      <div class="col-lg-3">
+        <input type="text" class="form-control" id="inputData" name="inputData" placeholder="searched by title/author/genre" />
+      </div>
+      <div class="col-lg-1">
+        <button type="submit" class="btn btn-success" >Search</button>
+      </div>
+  </form >
+  
+  </div>
+
+
+<div class="container-fluid pt-2 pb-2">
+    <table class="table " style="text-align: center;">
+      <thead>
+        <tr>
+          <th scope="col">Sr. No.</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Genre</th>
+          <th scope="col">No. of Copies</th>
+           <th scope="col">Edit</th> 
+          
+        </tr>
+      </thead>
+      <tbody>
+       
+        {% if show_all_books  %} 
+        
+          {% for i in show_all_books %}
+           {% if i %}
+        <tr> 
+          
+          <td><b> {{ loop.index }} </b></td>
+          <td>{{ i.get("inputTitle") }} </td>
+          <td> {{ i.get("inputAuthor") }} </td>
+          <td>  {{ i.get("inputGenre") }}  </td>
+          <td> {{ i.get("inputCopies") }}  </td>
+          <td><button type="button" class="btn btn-warning" onclick="window.location.href='http://127.0.0.1:5000/adminEditBook/{{ i._id }}/{{ access_level_email }}'"
+            method="POST">Edit</button></td>
+        
+        </tr>
+        {% endif %}
+        {% endfor %}
+   {% endif %}
+             
+      </tbody>
+    </table>
+  </div>
